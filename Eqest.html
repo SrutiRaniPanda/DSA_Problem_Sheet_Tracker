@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table with Features</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Title</th>
+                    <th>Question</th>
+                    <th>Edit</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Counter for serial numbers
+        let serialNumber = 1;
+
+        // Function to add a new row to the table
+        function addRow() {
+            const tableBody = document.querySelector('tbody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td>${serialNumber++}</td>
+                <td><input type="text" class="form-control" placeholder="Title"></td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Question">
+                    <button class="btn btn-primary btn-sm mt-2" onclick="convertToQuestion(this)">Add Question</button>
+                </td>
+                <td><button class="btn btn-warning btn-sm" onclick="editRow(this)">Edit</button></td>
+                <td>
+                    <select class="form-control" onchange="changeStatus(this)">
+                        <option value="done" style="color: green;">Done</option>
+                        <option value="pending" style="color: red;">Pending</option>
+                    </select>
+                </td>
+            `;
+
+            tableBody.appendChild(newRow);
+        }
+
+        // Function to convert the question input into a button
+        function convertToQuestion(button) {
+            const questionInput = button.previousElementSibling;
+            const questionText = questionInput.value;
+            if (questionText) {
+                const questionButton = document.createElement('button');
+                questionButton.classList.add('btn', 'btn-info', 'btn-sm');
+                questionButton.textContent = questionText;
+                questionButton.disabled = true;
+                button.parentElement.insertBefore(questionButton, button);
+                questionInput.style.display = 'none';
+                button.style.display = 'none';
+            }
+        }
+
+        // Function to edit the row
+        function editRow(button) {
+            const row = button.parentElement.parentElement;
+            const titleInput = row.querySelector('input[placeholder="Title"]');
+            const questionInput = row.querySelector('input[placeholder="Question"]');
+            const questionButton = row.querySelector('button.btn-info');
+            const editButton = row.querySelector('button.btn-warning');
+            titleInput.value = row.cells[1].textContent;
+            if (questionButton) {
+                questionInput.value = questionButton.textContent;
+                questionButton.remove();
+            }
+            questionInput.style.display = 'block';
+            button.style.display = 'none';
+            titleInput.focus();
+        }
+
+        // Function to change the status
+        function changeStatus(select) {
+            const selectedOption = select.options[select.selectedIndex];
+            select.style.color = selectedOption.style.color;
+        }
+    </script>
+
+    <div class="container mt-3">
+        <button class="btn btn-primary" onclick="addRow()">Add Row</button>
+    </div>
+
+    <!-- Include Bootstrap JS (jQuery and Popper.js are required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
