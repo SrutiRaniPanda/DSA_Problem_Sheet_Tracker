@@ -17,13 +17,29 @@
             tableDiv.innerHTML = add_data;
 
             
-            var jsonData = {
-                "Sr_no":add_data[0],
-                "title":add_data[1] ,
-                "Question":add_data[2],
-                "Stutus":add_data[3],
-            };
-            
+        }
+        function FetchData(){
+            const rows = document.querySelectorAll('#data tr');
+    const data = [];
+    rows.forEach(row => {
+        const rowData = {
+            'Sr No.': row.cells[0].textContent,
+            'Title': row.cells[1].textContent,
+            'Question': row.cells[2].getElementByTag("a").getAttribute("href"),
+            'Status': row.cells[4].querySelector('select').value
+        };
+        localStorage.setItem('Sr No', rowdata.getItem);
+        localStorage.setItem('Title', rowdata.getItem);
+        localStorage.setItem('uestion', rowdata.getItem);
+        localStorage.setItem('Status', rowdata.getItem);
+        data.push(rowData);
+        console.log(data);
+    });
+    const jsonData = JSON.stringify(data);
+
+    // Do something with the JSON data
+    console.log(jsonData);
+
         }
     </script>
 </head>
@@ -79,6 +95,56 @@
             </div>
         </div>
     </div>
+
+    
+
+    
+    
+    <div id="calendar"></div>
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <button onclick="setReminder()">Set Reminder</button>
+    <div id="notifications"></div>
+
+    <div>
+        <button onclick="FetchData()">Submit</button>
+    </div>
+
+    <script>
+        const reminders = [];
+
+        function setReminder() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (date && time) {
+                const reminderDateTime = new Date(`${date}T${time}`);
+                reminders.push(reminderDateTime);
+
+                displayReminders();
+            }
+        }
+
+        function displayReminders() {
+            const notifications = document.getElementById('notifications');
+            notifications.innerHTML = '';
+
+            reminders.forEach(reminder => {
+                const now = new Date();
+                if (reminder > now) {
+                    const diff = reminder - now;
+                    setTimeout(() => {
+                        const notification = document.createElement('div');
+                        notification.innerHTML = `Reminder: ${reminder.toLocaleString()}`;
+                        notifications.appendChild(notification);
+                    }, diff);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
