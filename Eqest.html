@@ -2,19 +2,26 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-    <style>
-        .pending {
-            color: red;
-        }
 
-        .done {
-            color: green;
+    <script>
+        var count=1;
+        function createTable() {
+            var tableDiv = document.getElementById("data");
+            var add_data=tableDiv.innerHTML;
+             var data = '<tr><td>'+(count+1)+'</td><td contenteditable="true" class="title">Your Title</td><td>    <button class="btn btn-primary" data-toggle="modal"data-target="#questionModal">Add Question</button></td><td><button class="btn btn-info">Edit</button></td><td>    <select class="form-control">       <option value="done">Done</option>        <option value="pending">Pending</option>    </select></td></tr>';
+        
+             add_data = add_data+data;
+             count++;
+
+
+            tableDiv.innerHTML = add_data;
+            
         }
-    </style>
+    </script>
 </head>
 <body>
-    <table class="table">
+    <table class="w-100">
+
         <thead>
             <tr>
                 <th>Sr No.</th>
@@ -24,7 +31,12 @@
                 <th>Status</th>
             </tr>
         </thead>
-        <tbody>
+        <button onclick="createTable()">Add Question</button>
+        <div id="tableDiv"></div>
+
+
+        <tbody id="data">
+
             <tr>
                 <td>1</td>
                 <td contenteditable="true" class="title">Your Title</td>
