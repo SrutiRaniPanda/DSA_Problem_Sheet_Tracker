@@ -28,10 +28,10 @@
             'Question': row.cells[2].getElementByTag("a").getAttribute("href"),
             'Status': row.cells[4].querySelector('select').value
         };
-        localStorage.setItem('Sr No', rowdata.getItem);
-        localStorage.setItem('Title', rowdata.getItem);
-        localStorage.setItem('uestion', rowdata.getItem);
-        localStorage.setItem('Status', rowdata.getItem);
+        localStorage.setItem('Sr No', rowdata['Sr No.']);
+        localStorage.setItem('Title', rowdata['Title']);
+        localStorage.setItem('Question', rowdata['Question']);
+        localStorage.setItem('Status', rowdata['Status']);
         data.push(rowData);
         console.log(data);
     });
