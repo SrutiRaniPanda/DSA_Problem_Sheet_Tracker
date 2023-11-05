@@ -1,61 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSA Problem Tracker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Table with Serial No</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Learn</a></li>
-               
+    <h1>Meduim Level Questions</h1>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be added here using JavaScript -->
+        </tbody>
+    </table>
 
-                <label for="cars">Choose a car:</label>
-
-                
-
-                <select name="cars" id="cars">
-                  <option value="PRACTICE">PRACTICE</option>
-                  <option value="EASY"><a href="C:\Dsa_prob_Tracker\DSA_Problem_Sheet_Tracker\Eqest.html">EASY</a></option>
-                  <option value="MEDIUM">MEDIUM</option>
-                  <option value="HARD">HARD</option>
-                  
-                </select>
-                    </div>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="content">
-            <h1>HELLO ! </h1>
-            <h2>Welcome to DSA Problem Sheet Tracker</h2>
-            <!-- Your website content goes here -->
+    <script>
+        // Sample data (you can replace this with your data)
+        const data = [
+            { serialNumber: 1, link: '<a href="https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1?page=1&sortBy=submissions">Kadane_Algorithm</a>' },
+            { serialNumber: 2, link: '<a href="https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1?page=1&sortBy=submissions">Minimum_number_of_jump</a>' },
             
-        </div>
-        <div class="images">
-            <img src="https://www.accessforstudents.co.uk/wp-content/uploads/2022/12/student-dsa-assessment-guide.jpg" alt="Image 1">
-            <img src="https://studywithgenius.in/wp-content/uploads/2021/06/DSA-1024x792.png" alt="Image 2">
-        </div>
+        ];
 
-       
-    </main>
+        const table = document.getElementById('myTable');
+        const tbody = table.querySelector('tbody');
 
-    <footer>
-        <div class="contact">
-            <p>Contact Us</p>
-            <address>
-                Email: <a href="dsatrack@gamil.com">contact@example.com</a><br>
-                Phone: +1-123-456-7890
-            </address>
-        </div>
-    </footer>
+        // Populate the table with data
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.serialNumber}</td>
+                <td>${item.link}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    </script>
 </body>
-<script src="script.js"></script>
 </html>
