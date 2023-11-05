@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styled Table</title>
+    <style>
+        /* Style for the table */
+        table {
+            border-collapse: collapse; /* Merge cell borders */
+            width: 80%; /* Set table width */
+            margin: 20px auto; /* Center-align the table */
+        }
+
+        /* Style for table header */
+        th {
+            background-color: purple; /* Header background color */
+            color: pink; /* Header text color */
+        }
+
+        /* Style for table rows */
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Alternate row background color */
+        }
+
+        /* Style for table cells */
+        td, th {
+            padding: 8px; /* Cell padding */
+            border: 1px solid #ddd; /* Cell border */
+            text-align: left; /* Text alignment */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+            <tr>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>Data 6</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
