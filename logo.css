@@ -1,0 +1,17 @@
+.logo-container {
+    text-align: left; /* Center the logo horizontally */
+    padding: 5px; /* Add spacing around the logo */
+}
+
+img {
+    max-width: 50%; /* Ensure the image does not exceed its container's width */
+    height: 75px; /* Maintain the image's aspect ratio */
+}
+.logo-container1 {
+    text-align: center; /* Center the logo horizontally */
+    padding: 5px; /* Add spacing around the logo */
+}
+img1 {
+    max-width: 50%; /* Ensure the image does not exceed its container's width */
+    height: 75px; /* Maintain the image's aspect ratio */
+}
