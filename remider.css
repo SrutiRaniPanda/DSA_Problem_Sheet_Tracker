@@ -1,0 +1,59 @@
+/* Style the body and center content */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+/* Style the h1 header */
+h1 {
+    color: #333;
+}
+
+/* Style the calendar container */
+#calendar {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+/* Style the input fields */
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the "Set Reminder" button */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the notifications container */
+#notifications {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Style individual notification divs */
+#notifications div {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}

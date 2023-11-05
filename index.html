@@ -51,8 +51,8 @@ th {
 
                 
 
-                <select name="cars" id="cars">
-                  <option value="PRACTICE">PRACTICE</option>
+                <select onchange="update()" name="cars" id="cars">
+                  <option  value="PRACTICE">PRACTICE</option>
                   <option  value="EASY">EASY</option>
                   <option value="MEDIUM">MEDIUM</option>
                   <option value="HARD">HARD</option>
@@ -101,5 +101,11 @@ th {
         </div>
     </footer>
 </body>
+
+<script>
+    function update(){
+     window.open("https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1?page=1&sortBy=submissions");   
+    }   
+    </script>
 
 </html>
